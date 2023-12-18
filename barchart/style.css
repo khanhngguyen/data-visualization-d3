@@ -1,0 +1,24 @@
+#container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#chart {
+  background-color: beige;
+  position: relative;
+}
+
+.bar {
+  fill: rgb(51, 173, 255);
+}
+
+.bar:hover {
+  fill: white;
+}
+
+#tooltip {
+  position: absolute;
+  background-color: white;
+}
