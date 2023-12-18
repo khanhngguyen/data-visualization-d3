@@ -1,0 +1,27 @@
+#container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#chart {
+  background-color: beige;
+  position: relative;
+}
+
+#tooltip{
+  position: absolute;
+  visibility: hidden;
+  height: auto;
+  width: auto;
+  margin: 5px;
+  font-size: 24px;
+  padding: 10px;
+  font-size: 14px;
+  background: pink;
+  border-radius: 2px;
+  pointer-events: none;
+  border-radius: 3px;
+  text-wrap: wrap;
+}
