@@ -6,7 +6,7 @@ let varianceData;
 let baseTemp;
 
 // Declare the chart dimensions cand margins.
-const width = 1000;
+const width = 1200;
 const height = 600;
 const padding = 60;
 
@@ -88,23 +88,23 @@ const drawChart = () => {
         .attr('fill', d => {
             let variance = d["variance"] + baseTemp;
             switch(true) {
-                case (variance < 3.9): return 'midnightblue';
+                case (variance < 3.9): return 'rgb(69, 117, 180)';
                 break;
-            case (variance < 5.0): return 'royalblue';
+                case (variance < 5.0): return 'rgb(116, 173, 209)';
                 break;
-            case (variance < 6.1): return 'skyblue';
+                case (variance < 6.1): return 'rgb(171, 217, 233)';
                 break;
-            case (variance < 7.2): return 'powderblue';
+                case (variance < 7.2): return 'rgb(224, 243, 248)';
                 break;
-            case (variance < 8.3): return 'khaki';
+                case (variance < 8.3): return 'rgb(255, 255, 191)';
                 break;
-            case (variance < 9.5): return 'gold';
+                case (variance < 9.5): return 'rgb(254, 224, 144)';
                 break;
-            case (variance < 10.6): return 'sandybrown';
+                case (variance < 10.6): return 'rgb(253, 174, 97)';
                 break
-            case (variance < 11.7): return 'orangered';
+                case (variance < 11.7): return 'rgb(244, 109, 67)';
                 break;
-            default: return 'firebrick';
+                default: return 'rgb(215, 48, 39)';
             }
         })
         .on("mouseover", (event, t) => {
@@ -162,23 +162,23 @@ const drawChart = () => {
         .attr("y", 0)
         .attr('fill', t => {
             switch(true) {
-                case (t < 3.9): return 'midnightblue';
+                case (t < 3.9): return 'rgb(69, 117, 180)';
                 break;
-                case (t < 5.0): return 'royalblue';
+                case (t < 5.0): return 'rgb(116, 173, 209)';
                 break;
-                case (t < 6.1): return 'skyblue';
+                case (t < 6.1): return 'rgb(171, 217, 233)';
                 break;
-                case (t < 7.2): return 'powderblue';
+                case (t < 7.2): return 'rgb(224, 243, 248)';
                 break;
-                case (t < 8.3): return 'khaki';
+                case (t < 8.3): return 'rgb(255, 255, 191)';
                 break;
-                case (t < 9.5): return 'gold';
+                case (t < 9.5): return 'rgb(254, 224, 144)';
                 break;
-                case (t < 10.6): return 'sandybrown';
+                case (t < 10.6): return 'rgb(253, 174, 97)';
                 break;
-                case (t < 11.7): return 'orangered';
+                case (t < 11.7): return 'rgb(244, 109, 67)';
                 break;
-                default: return 'firebrick';
+                default: return 'rgb(215, 48, 39)';
             }
         })
 }
