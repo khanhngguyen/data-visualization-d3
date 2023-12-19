@@ -1,0 +1,26 @@
+#container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#map {
+  background-color: whitesmoke;
+  min-width: 1000px;
+  min-height: 600px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+#tooltip{
+  visibility: hidden;
+  position: absolute;
+  padding: 10px;
+  font: 12px Arial;
+  background: rgba(255, 255, 204, 0.9);
+  box-shadow: 1px 1px 10px rgba(128, 128, 128, 0.6);
+  border: 0px;
+  border-radius: 2px;
+}

@@ -128,63 +128,59 @@ const drawChart = () => {
             .style("visibility", "hidden")
         })
 
-        // Add legends
-        const legendTemps = [2.8, 3.9, 5.0, 6.1, 7.2, 8.3, 9.5, 10.6, 11.7, 12.8];
+    // Add legends
+    const legendSize = 30;
+    const legendTemps = [2.8, 3.9, 5.0, 6.1, 7.2, 8.3, 9.5, 10.6, 11.7, 12.8];
 
-        const legend = d3.select("#legend")
-            .attr("width", width / 2)
-            .attr("height", 50)
+    const legend = d3.select("#legend")
+        .attr("width", width)
+        .attr("height", legendSize * 2)
 
-        // legend x axis
-        const legendxScale = d3.scaleLinear()
-            .domain([
-                d3.min(legendTemps) - 1,
-                d3.max(legendTemps) + 1
-            ])
-            .range([padding, (width - padding) / 2]);
+    // legend x axis
+    const legendxScale = d3.scaleLinear()
+        .domain([
+            d3.min(legendTemps),
+            d3.max(legendTemps) + 1
+        ])
+        .range([padding, (width - padding) / 2]);
 
-        const legendxAxis = d3.axisBottom(legendxScale)
-            .tickFormat(d3.format(".1f"))
-            .ticks(legendTemps.length + 2);
+    const legendxAxis = d3.axisBottom(legendxScale)
+        .tickFormat(d3.format(".1f"))
+        .ticks(legendTemps.length + 2);
 
-        legend.append("g")
-            .call(legendxAxis)
-            .attr('transform', 'translate(0, ' + 30 +')');
+    legend.append("g")
+        .call(legendxAxis)
+        .attr('transform', 'translate(0, ' + legendSize +')');
 
-        legend.selectAll("rect")
-            .data(legendTemps)
-            .enter()
-            .append("rect")
-            .attr("height", 30)
-            .attr("width", 30)
-            .attr("x", t => legendxScale(t) - 25)
-            .attr("y", 0)
-            .on("mouseover", (event, t) => {
-                tooltip.transition()
-                    .style("visibility", "visible")
-
-                tooltip.text("hihi");
-            })
-            .attr('fill', t => {
-                switch(true) {
-                    case (t < 3.9): return 'midnightblue';
-                    break;
-                    case (t < 5.0): return 'royalblue';
-                    break;
-                    case (t < 6.1): return 'skyblue';
-                    break;
-                    case (t < 7.2): return 'powderblue';
-                    break;
-                    case (t < 8.3): return 'khaki';
-                    break;
-                    case (t < 9.5): return 'gold';
-                    break;
-                    case (t < 10.6): return 'sandybrown';
-                    break;
-                    case (t < 11.7): return 'orangered';
-                    break;
-                    default: return 'firebrick';
-                }})
+    legend.selectAll("rect")
+        .data(legendTemps)
+        .enter()
+        .append("rect")
+        .attr("height", 30)
+        .attr("width", 30)
+        .attr("x", t => legendxScale(t) + 7)
+        .attr("y", 0)
+        .attr('fill', t => {
+            switch(true) {
+                case (t < 3.9): return 'midnightblue';
+                break;
+                case (t < 5.0): return 'royalblue';
+                break;
+                case (t < 6.1): return 'skyblue';
+                break;
+                case (t < 7.2): return 'powderblue';
+                break;
+                case (t < 8.3): return 'khaki';
+                break;
+                case (t < 9.5): return 'gold';
+                break;
+                case (t < 10.6): return 'sandybrown';
+                break;
+                case (t < 11.7): return 'orangered';
+                break;
+                default: return 'firebrick';
+            }
+        })
 }
 
 d3.json(url).then(
